@@ -1,0 +1,29 @@
+.mat-sort-header-container {
+  align-items: center;
+}
+
+
+/* .page {
+    color: white;
+    padding: 0 1rem;
+    background: #59a4f0;
+}
+    .box {
+      min-height: 190px;
+      background: #1e293b;
+      margin: 0 -1rem;
+      font-size: 36px;
+    }
+    .content {
+      min-height: calc(100vh - 178px);
+      border-radius: 10px;
+      margin-top: -2rem;
+      background: white;
+      color: black;
+      font-size: 2rem;
+    }
+      .data {
+        top: 100%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+      } */

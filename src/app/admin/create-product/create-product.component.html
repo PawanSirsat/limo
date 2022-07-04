@@ -1,0 +1,30 @@
+<mat-toolbar>
+    <mat-toolbar-row class="justify-content-between">
+      <button mat-icon-button (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <div class="row mr-2 ml-auto">
+        <ul class="row m-0 align-items-center">
+          <li>
+            <button
+              mat-button
+              [matMenuTriggerFor]="menu"
+              class="user mt-2 d-flex align-items-center"
+            >
+              <img src="https://cdn-icons.flaticon.com/png/512/4871/premium/4871351.png?token=exp=1654847370~hmac=7726eb03f19e177ac27aafc80d029335" alt="" class="user-image mr-1 p-2" />
+              Admin
+              <mat-icon class="user-image-icon ml-1"
+                >keyboard_arrow_down</mat-icon
+              >
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="onlogout()">
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+              </button>
+            </mat-menu>
+          </li>
+        </ul>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>

@@ -1,0 +1,56 @@
+<div class="container" >
+    <div class="container-fluid" style="margin-top: 90px;">
+        <div class="grid-container">
+
+        <div class="row"  *ngFor="let product of products">
+            <!-- Uses row in class if you want raw -->
+        
+                <div class="col-md-4 p-3" >
+                <div class="card">
+                    <div class="card-img-wrapper">
+                        <img class="card-img-top" src={{product.productImgUrl}}>
+                        <ul class="list-inline text-center member-icons animate">
+                            <li class="list-inline-item">
+                                <button class="btn btn-primary">Buy</button>
+                            </li>
+                            <li class="list-inline-item">
+                                <button class="btn btn-primary"
+                                *ngIf="!isProductInCart" 
+                                class="btn btn-success" 
+                                [disabled]="!user" 
+                                (click)="addToCart()">
+                                    <i class="fa-solid fa-cart-arrow-down"></i> Add to cart
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-6" >  
+                        <h2>{{product.productName}}</h2>
+                        <h3>{{product.productDis}}</h3>
+                        <ul>
+                            <li>{{product.brand}}</li>
+                            <li>{{product.ram}} GB RAM</li>
+                            <li>{{product.hdd}} GB HDD</li>
+                            <li>Microsoft Office & Student 2021</li>
+                            <li>2 Years Warranty</li>
+                          </ul>  
+                          
+                        
+                   </div>
+                   <div class="col-md-2">
+                    <h2>{{product.price | currency:"₹"}}</h2>
+                    <h5>free Delivery</h5>
+                    <h4>Upto 20% off on Exchange</h4>
+                    <div class="form-text text" style="color:green " >
+                       <b> Bank Offer</b>
+                    </div>
+                   </div>
+
+        </div>
+    </div>
+    </div>
+    
+</div>
+

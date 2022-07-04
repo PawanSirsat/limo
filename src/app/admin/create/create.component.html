@@ -1,0 +1,219 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-10 col-lg-9 mx-auto">
+      <div class="card border-1 shadow rounded-5 my-3">
+        <div class="card-body p-8 p-sm-5">
+          <div class="form-floating mb-3">
+
+            <!-- Form Name -->
+            <h2 class="text-center mb-4">Add Product</h2>
+            <form class="form-horizontal" [formGroup]="productForm" (ngSubmit)="addProduct()">
+
+              <!-- Text input-->
+              <div class="row justify-content-between text-lef">
+
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-2.5" for="productName">Product Name</label>
+                  <input id="productName" name="productName" placeholder="" class="form-control input-md" required=""
+                    type="text" formControlName="productName">
+                  <div class="form-text text-danger"
+                    *ngIf="productName.errors?.['required'] && (productName.touched || productName.dirty)">
+                    ProductName is required
+                  </div>
+                  <div class="form-text text-danger"
+                    *ngIf="productName.errors?.['minlength'] && (productName.touched || productName.dirty) ">
+                    Product Name is too short (min 5 Characters)
+                  </div>
+                  <div class="form-text text-danger"
+                    *ngIf="productName.errors?.['pattern'] && (productName.touched || productName.dirty) ">
+                    Product Name should start with a Character
+                  </div>
+                </div>
+
+                <!-- Short Discription -->
+                <div class="form-group col-sm-6 flex-column d-flex">
+                    <label class="form-control-label px-2.5" for="productDis">Product Discription Short</label>
+                    <input id="productDis" name="productDis" placeholder="" class="form-control input-md" required=""
+                    type="text" formControlName="productDis">
+                    <div class="form-text text-danger"
+                    *ngIf="productDis.errors?.['required'] && (productDis.touched || productDis.dirty)">
+                    Product Discription is required
+                    </div>
+                    <div class="form-text text-danger"
+                    *ngIf="productDis.errors?.['minlength'] && (productDis.touched || productDis.dirty) ">
+                    Product Discription must be 10 Words
+                     </div>
+                </div>
+
+              </div>
+
+
+              <!-- Select Basic -->
+              <div class="row justify-content-between text-lef">
+
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-3" for="categoryName">Product Category</label>
+                  <input id="categoryName" name="categoryName" placeholder="" class="form-control input-md" type="text"
+                    formControlName="categoryName">
+                    <div class="form-text text-black">
+                      Laptop/Desktop/CPU
+                    </div>
+                  <div class="form-text text-danger"
+                    *ngIf="categoryName.errors?.['required'] && (categoryName.touched || categoryName.dirty)">
+                    category Name is required
+                  </div>
+                  <div class="form-text text-danger"
+                    *ngIf="categoryName.errors?.['pattern'] && (categoryName.touched || categoryName.dirty) ">
+                    Must be in Character
+                  </div>
+                </div>
+
+                <div class="form-group col-sm-6 flex-column d-flex">
+                
+                  <label class="form-control-label px-3" for="type">Type of Product</label>
+                  <input id="type" name="type" placeholder="" class="form-control input-md" type="text"
+                    formControlName="type">
+                    <div class="form-text text-black">
+                      Office/Personal/Gaming
+                    </div>
+                  <div class="form-text text-danger"
+                    *ngIf="type.errors?.['required'] && (type.touched || type.dirty)">
+                    type is required
+                  </div>
+                  <div class="form-text text-danger"
+                    *ngIf="type.errors?.['pattern'] && (type.touched || type.dirty) ">
+                    Must be in Character
+                  </div>
+                </div>
+
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-3" for="brand">Type of Brand</label>
+                  <input id="brand" name="brand" placeholder="" class="form-control input-md" type="text"
+                    formControlName="brand">
+                    <div class="form-text text-black">
+                      Apple/Dell/HP/ASUS
+                    </div>
+                  <div class="form-text text-danger"
+                    *ngIf="brand.errors?.['required'] && (brand.touched || brand.dirty)">
+                    brand is required
+                  </div>
+                  <div class="form-text text-danger"
+                    *ngIf="brand.errors?.['pattern'] && (brand.touched || brand.dirty) ">
+                    Must be in Character
+                  </div>
+                </div>
+
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-3" for="ram">Ram Size (GB)</label>
+                  <input id="ram" name="ram" placeholder="" class="form-control input-md" type="text"
+                    formControlName="ram">
+                    <div class="form-text text-black">
+                      8/16/32
+                    </div>
+                  <div class="form-text text-danger"
+                    *ngIf="ram.errors?.['required'] && (ram.touched || ram.dirty)">
+                    Ram is Size Required
+                  </div>
+                  <div class="form-text text-danger"
+                    *ngIf="ram.errors?.['pattern'] && (ram.touched || ram.dirty) ">
+                    Must be in Digit
+                  </div>
+                </div>
+
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-3" for="hdd">HDD Size (GB)</label>
+                  <input id="hdd" name="hdd" placeholder="" class="form-control input-md" type="text"
+                    formControlName="hdd">
+                    <div class="form-text text-black">
+                      500/1000/2000
+                    </div>
+                  <div class="form-text text-danger"
+                    *ngIf="hdd.errors?.['required'] && (hdd.touched || hdd.dirty)">
+                    HDD is Size Required
+                  </div>
+                  <div class="form-text text-danger"
+                    *ngIf="hdd.errors?.['pattern'] && (hdd.touched || hdd.dirty) ">
+                    Must be in Digit
+                  </div>
+                </div>
+
+                <div class="form-group col-sm-6 flex-column d-flex">
+                  <label class="form-control-label px-3" for="price">Product Price</label>
+                  <input id="price" name="price" placeholder="" class="form-control input-md" type="text"
+                    formControlName="price">
+                  <div class="form-text text-danger"
+                    *ngIf="price.errors?.['required'] && (price.touched || price.dirty)">
+                     Price is Size Required
+                  </div>
+                  <div class="form-text text-danger"
+                    *ngIf="price.errors?.['pattern'] && (price.touched || price.dirty) ">
+                    Must be in Digit
+                  </div>
+                </div>
+
+              </div> 
+
+          <!-- Text input-->
+
+
+
+          <div class="row justify-content-between text-lef">
+
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3" for="quantity">AVAILABLE QUANTITY</label>
+              <input id="quantity" name="quantity" placeholder="" class="form-control input-md" type="text"
+                formControlName="quantity">
+              <div class="form-text text-danger"
+                *ngIf="quantity.errors?.['required'] && (quantity.touched || quantity.dirty)">
+                Product quantity is required
+              </div>
+              <div class="form-text text-danger"
+                *ngIf="quantity.errors?.['pattern'] && (productDis.touched || quantity.dirty) ">
+                Must be in Digit
+              </div>
+            </div>
+
+            <div class="form-group col-sm-6 flex-column d-flex">
+              <label class="form-control-label px-3" for="product">PRODUCT DESCRIPTION LONG</label>
+              <textarea class="form-control" id="productDisLong" name="productDisLong"
+                formControlName="productDisLong"></textarea>
+              <div class="form-text text-danger"
+                *ngIf="productDisLong.errors?.['required'] && (productDisLong.touched || productDisLong.dirty)">
+                Product Discription is required
+              </div>
+              <div class="form-text text-danger"
+                *ngIf="productDisLong.errors?.['minLength'] && (productDisLong.touched || productDisLong.dirty) ">
+                Must be 15 Words
+              </div>
+            </div>
+          
+
+
+          <div class="form-group col-sm-6 flex-column d-flex">
+
+            <label class="form-control-label px-2.5" for="productDis">Enter Product Image URL</label>
+            <input id="productImgUrl" name="productImgUrl" placeholder="productImgUrl" class="form-control input-md" type="text"
+              formControlName="productImgUrl">
+            <div class="form-text text-danger"
+              *ngIf="productImgUrl.errors?.['required'] && (productImgUrl.touched || productImgUrl.dirty)">
+              Product URL required
+            </div>
+          </div>
+        </div>
+
+        <!-- File Button -->
+
+        <div class="row justify-content-between text-lef">
+          <div class="form-group col-sm-6 flex-column d-flex">
+            <button id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit"
+              [disabled]="!productForm.valid">Save Product</button>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+

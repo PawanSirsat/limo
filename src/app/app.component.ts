@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'limo';
+  name: any;
+
+  loggedIn()
+  {
+     // this.name = this.route.snapshot.params['name'];
+     this.name = localStorage.getItem('token1');
+     return this.name;
+  }
 }

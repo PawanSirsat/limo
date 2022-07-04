@@ -1,0 +1,46 @@
+.logo-img{
+    float: left;
+    position: relative;
+    margin: 20px 15px 15px 20px;
+}
+
+.navbar {
+    overflow: visible;
+    background-color: #333;
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    display: flex; 
+  }
+  .navbar a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+  }
+
+  .dropdown:hover .dropdown-menu{
+    display: block;
+  }
+
+  .nav-item-car{
+    position: relative;
+  }
+
+  .nav-item-car i{
+    font-size: 20px;
+    color:aliceblue;
+  }
+
+  .cart_value{
+    position: absolute;
+    top: 9px;
+    right: 31px;
+    background:#fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    padding :0px 6px;
+
+  }
+
+  

@@ -1,0 +1,107 @@
+
+<div class="row">
+    <div class="col-lg-10 p-4">
+  <mat-drawer-container >
+    <mat-drawer mode="side" [opened]="sideBarOpen">
+      <!-- <mat-drawer mode="side" opened="true"> -->
+      <!-- <app-employee-details></app-employee-details>   -->
+      <mat-nav-list>
+     
+        <div class="logo py-2"  *ngIf="userloggedIn()" >
+          <img src="https://cdn-icons-png.flaticon.com/512/7153/7153080.png" alt="Admin" width="70" height="65" />
+          <h3>{{name1}}</h3>
+        </div>
+        <mat-divider></mat-divider>
+        <h1 matSubheader class="mt-lg-2">APPLICATIONS</h1>
+      
+        <a mat-list-item (click)="onSelect('home')"><mat-icon>dashboard</mat-icon> Dashboard</a>
+
+        <a mat-list-item (click)="onSelect('user-detail')"> <mat-icon>person</mat-icon> Employee Details</a>
+        <!-- <a mat-list-item (click)="onSelect('user-edit')"><mat-icon>edit</mat-icon> Employee-edit</a> -->
+        <a mat-list-item (click)="onSelect('create-employee')"> <mat-icon>person_add</mat-icon>Employee Create </a>
+        
+        <a mat-list-item (click)="onSelect('employee-details')"> <mat-icon>person</mat-icon> User Details</a>
+        <a mat-list-item (click)="onSelect('create')"> <mat-icon>add</mat-icon> Add Product </a>
+        <a mat-list-item> <mat-icon>edit</mat-icon> Link </a>
+      </mat-nav-list>
+      <!-- side navBar -->
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-create-product (toggleSidebarForMe)="sideBarToggler()"></app-create-product>
+      
+      <app-home *ngIf="!loadedFeature"></app-home>
+      <app-home *ngIf="loadedFeature === 'home'"></app-home>
+      <app-user-edit *ngIf="loadedFeature === 'user-edit'"></app-user-edit>
+      <app-user-detail *ngIf="loadedFeature === 'user-detail'"></app-user-detail> 
+      <app-create-employee *ngIf="loadedFeature === 'create-employee'"></app-create-employee>
+      <app-employee-details *ngIf="loadedFeature === 'employee-details'"></app-employee-details>
+       <app-create *ngIf="loadedFeature === 'create'"></app-create> 
+       <!-- <router-outlet name='userd'></router-outlet> -->
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+    <div class="col-4">
+        <mat-toolbar class="mat-elevation-z8">
+            <button
+              mat-icon-button
+              *ngIf="sidenav.mode === 'over'"
+              (click)="sidenav.toggle()"
+            >
+              <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+              <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+            </button>
+            Responsive side navigation
+          </mat-toolbar>
+          
+          <mat-sidenav-container>
+            <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+              <img
+                class="avatar mat-elevation-z8"
+                src="https://source.unsplash.com/c_GmwfHBDzk/200x200"
+              />
+          
+              <h4 class="name">John Smith</h4>
+              <p class="designation">Software Engineer</p>
+          
+              <mat-divider></mat-divider>
+          
+              <button mat-button class="menu-button" routerLink="admin/create-employee" routerLinkActive="active" class="nav-link">
+                <mat-icon>home</mat-icon>
+                <span>Home</span>
+              </button>
+              <button mat-button class="menu-button" routerLink="admin/create-product" routerLinkActive="active" class="nav-link">
+                <mat-icon>person</mat-icon>
+                <span>Profile</span>
+              </button>
+              <button mat-button class="menu-button" routerLink="admin/employee-details" routerLinkActive="active" class="nav-link">
+                <mat-icon>info</mat-icon>
+                <span>About</span>
+              </button>
+          
+              <mat-divider></mat-divider>
+          
+              <button mat-button class="menu-button" routerLink="admin/user-details" routerLinkActive="active" class="nav-link">
+                <mat-icon>help</mat-icon>
+                <span>Help</span>
+              </button>
+            </mat-sidenav>
+            <mat-sidenav-content>
+              <div class="content mat-elevation-z8">
+                
+              </div>
+            </mat-sidenav-content>
+          </mat-sidenav-container>
+    </div>
+</div> -->

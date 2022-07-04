@@ -1,0 +1,106 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-5 fw-light fs-5">Sign Up</h5>
+            <form [formGroup]="registerForm" (ngSubmit)="registerUser(user.emailId)">
+
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="user" placeholder="Full Name" name="name"   required           
+                     formControlName="name" minlength="5">
+                    <label for="floatingInput">Name</label>
+
+                     <div class="form-text text-danger" *ngIf="name.errors?.['required'] && (name.touched || name.dirty)">
+                      name is required
+                     </div>
+                     <div class="form-text text-danger" *ngIf="name.errors?.['minlength'] && (name.touched || name.dirty) ">
+                      name is too short (min 5 Characters)
+                     </div>
+                     <div class="form-text text-danger" *ngIf="name.errors?.['pattern'] && (name.touched || name.dirty) ">
+                      name should start with a Character
+                     </div>
+                     
+                 </div>
+
+
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="emailId" placeholder="name@example.com" name="emailId" 
+                 formControlName="emailId">
+                <label for="floatingInput">Email address</label>
+
+                <div class="form-text text-danger" *ngIf="emailId.errors?.['required'] && (emailId.touched || emailId.dirty)">
+                  Email is required
+                </div>
+                <div class="form-text text-danger" *ngIf="emailId.errors?.['email'] && (emailId.touched || emailId.dirty)">
+                  Email is not valid
+                </div>
+              </div>
+
+
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="phone" placeholder="Mobile Number" name="phone" 
+                formControlName="phone">
+                <label for="floatingPassword">Mobile</label>
+
+                <div class="form-text text-danger" *ngIf="phone.errors?.['required'] && (phone.touched || phone.dirty)">
+                  phone is required
+                </div>
+                <div class="form-text text-danger" *ngIf="phone.errors?.['minlength'] && (phone.touched || phone.dirty)">
+                  Phone no. must be 10 digit (min 10)
+                </div>
+                <div class="form-text text-danger" *ngIf="phone.errors?.['maxlength'] && (phone.touched || phone.dirty)">
+                  Phone no. must be 10 digit (max 12)
+                </div>
+                <div class="form-text text-danger" *ngIf="phone.errors?.['pattern'] && (phone.touched || phone.dirty)">
+                  phone is not valid
+                </div>
+                
+              </div>
+
+
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password" 
+                formControlName="password"
+                autocomplete="on">
+                <label for="floatingPassword">Password</label>
+
+                <div class="form-text text-danger" *ngIf="password.errors?.['required'] && (password.touched || password.dirty)">
+                  Password is required 
+                </div>
+                <div class="form-text text-danger" *ngIf="password.errors?.['minlength'] ">
+                  Password must be 5 character
+                </div>
+              </div>
+
+
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="cpassword" placeholder="Password" name="cpassword" 
+                formControlName="cpassword" 
+                autocomplete="on">
+                <label for="floatingPassword">Confirm Password</label>
+                <div class="form-text text-danger" [class.d-none] = "(cpassword.value == password.value ) && (cpassword.untouched || cpassword.dirty)">
+                  Password & Confirm Password must be same
+                </div>
+               </div>
+       
+               <small class="text-danger">{{msg}}</small>
+              <div class="d-grid">              
+                  <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit" [disabled]="!registerForm.valid">Register</button>
+              </div>
+              
+            </form>
+
+              <hr class="my-2">
+              <div class="d-grid">
+                <button class="btn btn-dark btn-login text-uppercase fw-bold nav-link" type="submit" routerLink="/user-login"
+                 routerLinkActive="active" > Already Register ? Login</button>
+              </div>
+
+              <hr class="my-4">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
